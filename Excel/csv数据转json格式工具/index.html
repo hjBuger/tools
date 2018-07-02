@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Excel/csv数据转json格式工具</title>
+        <link rel="stylesheet" href="style/index.css">
+        <script src="js/index.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="intro">
+                <h2>Excel/csv数据转json格式工具</h2>
+                <p>这是一款可将Excel/csv数据在线转换成json格式的工具，用户只需复制Excel/csv中的数据粘贴到上面一个文本框，再点击【转换】按钮即可实现快速转换json功能，还可根据需要选择转换成html的table格式，欢迎需要的朋友使用。</p>
+            </div>
+            <div class="content">
+                <section>
+                    <textarea name="source" id="source" placeholder="请在excel里复制下内容贴到上面一个文本框里"></textarea>
+                </section>
+                <section class="btnBar">
+                    <div>
+                        <button class="convert">转换</button>
+                        <button class="clearTxt">清空</button>
+                    </div>
+                    <div>
+                        <span>格式：</span>
+                        <select name="" id="gs">
+                            <option value="json" selected>json</option>
+                            <option value="table">table</option>
+                        </select>
+                    </div>
+                </section>
+                <section class="result">
+                    <textarea name="result" id="result" placeholder="转换后的内容"></textarea>
+                </section>
+            </div>
+        </div>
+
+        <script>
+            var convert = document.querySelector(".convert");
+            var clearTxt = document.querySelector(".clearTxt");
+            var ec = new ExcelConvert("#source","#result");
+
+            convert.onclick = function(){
+                ec.convert("json");
+            };
+            clearTxt.onclick = function(){
+                ec.clearTxt();
+            };
+        </script>
+    </body>
+</html>

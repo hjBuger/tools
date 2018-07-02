@@ -1,0 +1,101 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Microsoft YaHei", sans-serif;
+}
+ul,
+ol {
+  list-style: none;
+}
+a,
+button,
+input[type='button'] {
+  outline: none;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  font-size: inherit;
+  color: inherit;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.intro {
+  width: 100%;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #cccccc;
+}
+.intro h2 {
+  text-align: center;
+  padding: 15px 0;
+}
+.intro p {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+  padding: 10px 15px;
+  border-radius: 6px;
+  line-height: 24px;
+}
+.content {
+  margin-top: 10px;
+}
+.content section {
+  padding: 15px 0 0;
+}
+.content section textarea {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  border-radius: 6px;
+  min-height: 210px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  outline: none;
+  border: 1px solid #cccccc;
+  font-size: 14px;
+  line-height: 24px;
+  color: #5f5f5f;
+}
+.content section textarea:focus {
+  border: 1px solid #309bff;
+  box-shadow: 0 0 7px #3cc1ff;
+}
+.content .btnBar > div {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+.content .btnBar > div button {
+  color: #fff;
+  border: none;
+  background-color: #d94760;
+  font-size: 14px;
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 4px;
+}
+.content .btnBar > div button:hover {
+  background-color: #d92a4e;
+}
+.content .btnBar > div select {
+  width: 120px;
+  height: 30px;
+  cursor: pointer;
+  outline: none;
+}
+/*# sourceMappingURL=index.css.map */
