@@ -25,9 +25,19 @@
                     </div>
                     <div>
                         <span>格式：</span>
-                        <select name="" id="gs">
+                        <select id="gs">
                             <option value="json" selected>json</option>
                             <option value="table">table</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="convert">转换为二维数组</button>
+                        <span>第二维长度：</span>
+                        <input placeholder="默认为10" />
+                        <span>是否补全：</span>
+                        <select id="bq">
+                            <option value="否" selected>否</option>
+                            <option value="是">是</option>
                         </select>
                     </div>
                 </section>

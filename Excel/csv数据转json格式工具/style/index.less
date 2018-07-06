@@ -75,7 +75,7 @@ a{
                 border:none;
                 background-color: #d94760;
                 font-size: 14px;
-                width: 60px;
+                min-width: 60px;
                 height: 30px;
                 line-height: 30px;
                 border-radius: 4px;
@@ -89,6 +89,19 @@ a{
                 height: 30px;
                 cursor:pointer;
                 outline: none;
+            }
+            input{
+                width: 120px;
+                height: 30px;
+                outline: none;
+                box-sizing: border-box;
+                padding-left: 10px;
+                padding-right: 10px;
+
+                &:focus{
+                    border:1px solid #309bff;
+                    box-shadow:0 0 5px #3cc1ff;
+                }
             }
         }
     }
