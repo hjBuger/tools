@@ -31,13 +31,13 @@
                         </select>
                     </div>
                     <div>
-                        <button class="convert">转换为二维数组</button>
+                        <button class="convertTwo">转换为二维数组</button>
                         <span>第二维长度：</span>
-                        <input placeholder="默认为10" />
+                        <input id="len" placeholder="默认为10" />
                         <span>是否补全：</span>
                         <select id="bq">
-                            <option value="否" selected>否</option>
-                            <option value="是">是</option>
+                            <option value="false" selected>否</option>
+                            <option value="true">是</option>
                         </select>
                     </div>
                 </section>
@@ -48,13 +48,36 @@
         </div>
 
         <script>
+            //转换一维数组
             var convert = document.querySelector(".convert");
+            //转换二维数组
+            var convertTwo = document.querySelector(".convertTwo");
+            //清空
             var clearTxt = document.querySelector(".clearTxt");
+            //初始化对象
             var ec = new ExcelConvert("#source","#result");
+            //生成结果格式
+            var gs = document.querySelector("#gs");
+            //是否补全二维数组
+            var bq = document.querySelector("#bq");
+            //二维数组长度
+            var len = document.querySelector("#len");
 
+            //转换一维数组
             convert.onclick = function(){
-                ec.convert("json");
+                ec.convert(gs.value);
             };
+
+            //转换二维数组
+            convertTwo.onclick = function(){
+                //将字符串类型false和true转换成Boolean类型
+                var control = bq.value === "true";
+                //没输入长度，则给默认10
+                var arrLen = parseInt(len.value) || 10;
+                ec.twoDimension(gs.value,arrLen,control);
+            };
+
+            //清空
             clearTxt.onclick = function(){
                 ec.clearTxt();
             };

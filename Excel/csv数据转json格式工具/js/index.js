@@ -16,13 +16,21 @@ ExcelConvert.prototype.convert = function (type) {
     this.jsonList = this.getJsonList(this.cols);//json列表
 
     //结果对象的值
+    this.setVal(this.jsonList,type);
+
+    return this.jsonList;
+};
+
+//设置结果值
+ExcelConvert.prototype.setVal = function(val,type){
     if(type === "json" || type === ""){
-        this.result.value = this.jsonList;
+        this.result.value = val;
     }
     if(type === "table"){
         //this.result.value = this.jsonList;
     }
 };
+
 
 //清空值
 ExcelConvert.prototype.clearTxt = function () {
@@ -65,4 +73,34 @@ ExcelConvert.prototype.getJsonList = function (arr) {
     jsonList += "\n]";
 
     return jsonList;
+};
+
+//二维数组方法
+ExcelConvert.prototype.twoDimension = function (type,len,control) {
+    type = type || "";
+    var list = this.jsonList || this.convert();//如果一开始没有转换为一维数组，则需先转换
+    var newArr = JSON.parse(list);
+    this.twoDimensionArr = this.getTwoDimension(newArr,len,control);
+    this.setVal(JSON.stringify(this.twoDimensionArr),type);
+};
+
+//转化为二维数组
+ExcelConvert.prototype.getTwoDimension = function (arr,len,control) {
+    len = len || 10;
+    var aLen = arr.length;
+    var trLen = Math.ceil(aLen/len);
+    var list = [];
+    for(var i=0;i<trLen;i++){
+        var nArr = [];
+        for(var j=i*len;j<(i*len+len);j++){
+            if(j<aLen){
+                nArr.push(arr[j]);
+            }else if(control){//补全二维数组
+                var newJson = "";
+                nArr.push(newJson);
+            }
+        }
+        list.push(nArr);
+    }
+    return list;
 };
